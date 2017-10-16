@@ -22,16 +22,6 @@ class View
         $this->url = $url;
     }
 
-    public function asset($subfolder, $file)
-    {
-        return $this->url->getAssetUrl($subfolder, $file);
-    }
-
-    public function url($relativeUrl = '')
-    {
-        return $this->url->getFullUrl($relativeUrl);
-    }
-
 
     /**
      * This function should use a parser to give this object Templating powers
@@ -58,7 +48,7 @@ class View
     }
 
     /**
-     * Here we do any extra render if needed and then we return a Response object
+     * Here is where the actual view gets rendered.
      * @param array $params
      * @return $this
      */
@@ -79,6 +69,10 @@ class View
         return $this->content;
     }
 
+    /**
+     * Returns a valid Response object FROM the content that the view has
+     * @return Response
+     */
     public function getResponse()
     {
         return new Response(
@@ -86,5 +80,15 @@ class View
             Response::HTTP_OK,
             array('content-type' => 'text/html')
         );
+    }
+
+    public function asset($subfolder, $file)
+    {
+        return $this->url->getAssetUrl($subfolder, $file);
+    }
+
+    public function url($relativeUrl = '')
+    {
+        return $this->url->getFullUrl($relativeUrl);
     }
 }

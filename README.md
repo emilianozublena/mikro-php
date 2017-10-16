@@ -239,18 +239,25 @@ php eloquent_migrations.php
 ## Testing this framework
 For rapid test, these are the things that should be done:
 1) Clone the repo
-2) Make sure database is properly configured (config/app.php)
-3) Make sure baseUrl is defined (config/app.php)
-4) Make sure mod_rewrite is enabled in your apache installation
-5) Run migrations
-6) Access through web browser
+2) Do update composer (composer update)
+3) Make sure database is properly configured (config/app.php)
+4) Make sure baseUrl is defined (config/app.php)
+5) Make sure mod_rewrite is enabled in your apache installation
+6) Run migrations
+7) Access through web browser
 
 ## Schematics
+schematic.pdf has a small schematic of the design for the different layers and main objects and their responsibilities and dependencies
 
+## Database Schema
+The "demo" database structure that comes with the fw is pretty simple.
+Its a Book entity related to a Shelf entity. A shelf can have any number of books and a book belongs to only one shelf
+inside Models/ you'll find both models (Book & Shelf in singular according to Eloquent needs)
+inside Http/Controllers you'll find both controllers (Books & Shelves in plural to maintain a RESTful resource/entity approach)
 
 ### Unit Testing with PHPUnit
 The tests are prepared to be used with PHPUnit and the test suite is configured via XML, so you'll only need to execute PHPUnit in your forked version of this repo like so:
 ```shell
 ./vendor/bin/phpunit
 ```
-Coverage is not high, the suites are just an example of how to put together the tests.
+Coverage is not high, suites are just an example of how to put together the tests.

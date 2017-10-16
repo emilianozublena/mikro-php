@@ -16,6 +16,14 @@ namespace Mikro\Http;
 
 class Response
 {
+    /**
+     * This works as a factory for creating specific instances of Response's like JsonResponse, HtmlResponse and such
+     * @param $type
+     * @param $content
+     * @param $httpStatusCode
+     * @param array $headers
+     * @return mixed
+     */
     public function create($type, $content, $httpStatusCode, $headers = [])
     {
         return new $type($content, $httpStatusCode, $headers);

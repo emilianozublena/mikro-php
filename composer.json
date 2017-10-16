@@ -1,0 +1,25 @@
+{
+    "name": "emilianozublena/mikro-php",
+    "description": "PHP 5.6 MVC Micro Framework",
+    "authors": [{
+        "name": "Emiliano Zublena",
+        "email": "ezublena@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.6",
+        "illuminate/database": "^5.4",
+        "symfony/http-foundation": "~3.2",
+        "zendframework/zend-servicemanager": "^3.3",
+        "nikic/fast-route": "^1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Mikro\\" : "src/",
+            "Mikro\\Interfaces\\" : "src/interfaces",
+            "Mikro\\Tests\\" : "tests/"
+        }
+    }
+}
